@@ -17,7 +17,7 @@ public class PurchaserDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + Constants.TABLE_NAME + "(" + Constants.TABLE_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + Constants.TABLE_USER_NAME + " TEXT UNIQUE," + Constants.TABLE_USER_PASS + " TEXT" + ")";
         db.execSQL(query);
-        query = "INSERT INTO " + Constants.TABLE_NAME + " (" + Constants.TABLE_USER_NAME + "," + Constants.TABLE_USER_PASS + ") " + "VALUES (" + "admin," + "admin123" + ")";
+        query = "INSERT INTO " + Constants.TABLE_NAME + " (" + Constants.TABLE_USER_NAME + "," + Constants.TABLE_USER_PASS + ") " + "VALUES (" + "\"admin\"," + "\"admin123\"" + ")";
         db.execSQL(query);
     }
 
