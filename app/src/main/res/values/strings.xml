@@ -9,4 +9,7 @@
     <string name="admin">Admin</string>
     <string name="save">Save</string>
     <string name="user">User</string>
+    <string name="add_product">Add Product</string>
+    <string name="product_name">Product Name</string>
+    <string name="price">Price</string>
 </resources>

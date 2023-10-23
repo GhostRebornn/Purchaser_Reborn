@@ -17,7 +17,7 @@ public class PurchaserDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE " + Constants.TABLE_NAME +
+        String query = "CREATE TABLE " + Constants.TABLE_NAME_USER +
                 "(" +
                 Constants.TABLE_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 Constants.TABLE_USER_NAME + " TEXT UNIQUE," +
@@ -26,7 +26,7 @@ public class PurchaserDatabase extends SQLiteOpenHelper {
                 Constants.TABLE_USER_ADMIN + " INTEGER NOT NULL DEFAULT 0" +
                 ")";
         db.execSQL(query);
-        query = "INSERT INTO " + Constants.TABLE_NAME +
+        query = "INSERT INTO " + Constants.TABLE_NAME_USER +
                 " (" +
                 Constants.TABLE_USER_NAME + "," +
                 Constants.TABLE_USER_PASS + "," +
@@ -41,7 +41,7 @@ public class PurchaserDatabase extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + Constants.TABLE_NAME_USER);
         onCreate(db);
     }
 }

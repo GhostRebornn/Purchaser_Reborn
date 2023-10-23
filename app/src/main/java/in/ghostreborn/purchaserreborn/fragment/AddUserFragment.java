@@ -63,7 +63,7 @@ public class AddUserFragment extends Fragment {
         values.put(Constants.TABLE_USER_PASS, pass);
         values.put(Constants.TABLE_USER_SELLER, isSeller ? 1 : 0);
         values.put(Constants.TABLE_USER_ADMIN, isAdmin ? 1 : 0);
-        long rowID = db.insert(Constants.TABLE_NAME, null, values);
+        long rowID = db.insert(Constants.TABLE_NAME_USER, null, values);
         Log.e("TAG", "Inserted at row: " + rowID);
     }
 
