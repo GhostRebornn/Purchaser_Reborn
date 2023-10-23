@@ -1,5 +1,6 @@
 package in.ghostreborn.purchaserreborn;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -44,9 +45,13 @@ public class LoginFragment extends Fragment {
         while (cursor.moveToNext()) {
             String user = cursor.getString(1);
             String password = cursor.getString(2);
+            boolean isSeller = cursor.getInt(3) == 1;
+            boolean isAdmin = cursor.getInt(4) == 1;
 
             if (userName.equals(user) && password.equals(pass)){
-                Log.e("TAG", "True");
+                if (isAdmin){
+                    startActivity(new Intent(getContext(), AdminActivity.class));
+                }
             }
 
         }
