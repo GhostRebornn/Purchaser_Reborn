@@ -4,4 +4,8 @@
     <string name="login">Login</string>
     <string name="password">Password</string>
     <string name="username">Username</string>
+    <string name="add_user">Add User</string>
+    <string name="seller">Seller</string>
+    <string name="admin">Admin</string>
+    <string name="save">Save</string>
 </resources>
