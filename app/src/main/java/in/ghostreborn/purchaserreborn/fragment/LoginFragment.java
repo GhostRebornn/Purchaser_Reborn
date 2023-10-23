@@ -38,8 +38,10 @@ public class LoginFragment extends Fragment {
     }
 
     private void checkUser(String userName, String pass){
-        PurchaserDatabase purchaserDatabase = new PurchaserDatabase(getContext());
-        SQLiteDatabase db = purchaserDatabase.getReadableDatabase();
+        SQLiteDatabase db;
+        try (PurchaserDatabase purchaserDatabase = new PurchaserDatabase(getContext())) {
+            db = purchaserDatabase.getReadableDatabase();
+        }
         String query = "SELECT * FROM " + Constants.TABLE_NAME_USER;
         Cursor cursor = db.rawQuery(query, null);
         while (cursor.moveToNext()) {
