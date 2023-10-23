@@ -1,8 +1,10 @@
-package in.ghostreborn.purchaserreborn;
+package in.ghostreborn.purchaserreborn.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import in.ghostreborn.purchaserreborn.Constants;
 
 public class PurchaserDatabase extends SQLiteOpenHelper {
 

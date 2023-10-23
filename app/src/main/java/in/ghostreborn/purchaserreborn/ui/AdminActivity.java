@@ -1,8 +1,10 @@
-package in.ghostreborn.purchaserreborn;
+package in.ghostreborn.purchaserreborn.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import in.ghostreborn.purchaserreborn.R;
 
 public class AdminActivity extends AppCompatActivity {
 
