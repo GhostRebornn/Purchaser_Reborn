@@ -6,10 +6,11 @@
     <string name="username">Username</string>
     <string name="add_user">Add User</string>
     <string name="seller">Seller</string>
-    <string name="admin">Admin</string>
+    <string name="admin">admin</string>
     <string name="save">Save</string>
     <string name="user">User</string>
     <string name="add_product">Add Product</string>
     <string name="product_name">Product Name</string>
     <string name="price">Price</string>
+    <string name="admin123">admin123</string>
 </resources>
