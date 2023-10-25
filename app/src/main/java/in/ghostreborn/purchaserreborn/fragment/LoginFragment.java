@@ -38,24 +38,26 @@ public class LoginFragment extends Fragment {
     }
 
     private void checkUser(String userName, String pass){
-        SQLiteDatabase db;
+        SQLiteDatabase db = null;
         try (PurchaserDatabase purchaserDatabase = new PurchaserDatabase(getContext())) {
             db = purchaserDatabase.getReadableDatabase();
-        }
-        String query = "SELECT * FROM " + Constants.TABLE_NAME_USER;
-        Cursor cursor = db.rawQuery(query, null);
-        while (cursor.moveToNext()) {
-            String user = cursor.getString(1);
-            String password = cursor.getString(2);
-            boolean isAdmin = cursor.getInt(4) == 1;
+            String query = "SELECT * FROM " + Constants.TABLE_NAME_USER;
+            Cursor cursor = db.rawQuery(query, null);
+            while (cursor.moveToNext()) {
+                String user = cursor.getString(1);
+                String password = cursor.getString(2);
+                boolean isAdmin = cursor.getInt(4) == 1;
 
-            if (userName.equals(user) && password.equals(pass)){
-                if (isAdmin){
-                    startActivity(new Intent(getContext(), AdminActivity.class));
+                if (userName.equals(user) && password.equals(pass)) {
+                    if (isAdmin) {
+                        startActivity(new Intent(getContext(), AdminActivity.class));
+                    }
                 }
             }
+            cursor.close();
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        cursor.close();
     }
 
 }
