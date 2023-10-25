@@ -27,6 +27,12 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/add_products_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Products" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/products_recycler"
                 android:layout_width="match_parent"
@@ -38,6 +44,12 @@
                 android:text="Users"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/add_users_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add Users" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/users_recycler"
