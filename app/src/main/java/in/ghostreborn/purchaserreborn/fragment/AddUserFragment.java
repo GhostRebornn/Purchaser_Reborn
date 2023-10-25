@@ -56,13 +56,15 @@ public class AddUserFragment extends Fragment {
         SQLiteDatabase db;
         try (PurchaserDatabase purchaserDatabase = new PurchaserDatabase(getContext())) {
             db = purchaserDatabase.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(Constants.TABLE_USER_NAME, userName);
+            values.put(Constants.TABLE_USER_PASS, pass);
+            values.put(Constants.TABLE_USER_SELLER, isSeller ? 1 : 0);
+            values.put(Constants.TABLE_USER_ADMIN, isAdmin ? 1 : 0);
+            db.insert(Constants.TABLE_NAME_USER, null, values);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        ContentValues values = new ContentValues();
-        values.put(Constants.TABLE_USER_NAME, userName);
-        values.put(Constants.TABLE_USER_PASS, pass);
-        values.put(Constants.TABLE_USER_SELLER, isSeller ? 1 : 0);
-        values.put(Constants.TABLE_USER_ADMIN, isAdmin ? 1 : 0);
-        db.insert(Constants.TABLE_NAME_USER, null, values);
     }
 
 }

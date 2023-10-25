@@ -47,16 +47,18 @@ public class UpdateProductFragment extends Fragment {
         try (PurchaserDatabase productDatabase = new PurchaserDatabase(getContext())) {
             try {
                 db = productDatabase.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(Constants.TABLE_PRODUCT_NAME, product);
+                values.put(Constants.TABLE_PRODUCT_PRICE, price);
+                assert db != null;
+                long rowID = db.insert(Constants.TABLE_NAME_PRODUCT, null, values);
+                Log.e("TAG", "Inserted at row: " + rowID);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        ContentValues values = new ContentValues();
-        values.put(Constants.TABLE_PRODUCT_NAME, product);
-        values.put(Constants.TABLE_PRODUCT_PRICE, price);
-        assert db != null;
-        long rowID = db.insert(Constants.TABLE_NAME_PRODUCT, null, values);
-        Log.e("TAG", "Inserted at row: " + rowID);
     }
 
 }
