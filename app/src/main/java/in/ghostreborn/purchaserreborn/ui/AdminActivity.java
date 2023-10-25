@@ -1,8 +1,10 @@
 package in.ghostreborn.purchaserreborn.ui;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,6 +24,11 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
+        Button addUserButton = findViewById(R.id.add_users_button);
+        Button addProductButton = findViewById(R.id.add_products_button);
+        addUserButton.setOnClickListener(v -> startActivity(new Intent(AdminActivity.this, AddUsersActivity.class)));
+        addProductButton.setOnClickListener(v -> startActivity(new Intent(AdminActivity.this, AddProductsActivity.class)));
 
         RecyclerView productsRecycler = findViewById(R.id.products_recycler);
         RecyclerView usersRecycler = findViewById(R.id.users_recycler);
