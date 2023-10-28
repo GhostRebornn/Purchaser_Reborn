@@ -16,6 +16,8 @@ import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
 import in.ghostreborn.purchaserreborn.database.PurchaserDatabase;
 import in.ghostreborn.purchaserreborn.ui.AdminActivity;
+import in.ghostreborn.purchaserreborn.ui.SellerActivity;
+import in.ghostreborn.purchaserreborn.ui.UserActivity;
 
 public class LoginFragment extends Fragment {
 
@@ -38,7 +40,7 @@ public class LoginFragment extends Fragment {
     }
 
     private void checkUser(String userName, String pass){
-        SQLiteDatabase db = null;
+        SQLiteDatabase db;
         try (PurchaserDatabase purchaserDatabase = new PurchaserDatabase(getContext())) {
             db = purchaserDatabase.getReadableDatabase();
             String query = "SELECT * FROM " + Constants.TABLE_NAME_USER;
@@ -46,11 +48,16 @@ public class LoginFragment extends Fragment {
             while (cursor.moveToNext()) {
                 String user = cursor.getString(1);
                 String password = cursor.getString(2);
+                boolean isSeller = cursor.getInt(3) == 1;
                 boolean isAdmin = cursor.getInt(4) == 1;
 
                 if (userName.equals(user) && password.equals(pass)) {
                     if (isAdmin) {
                         startActivity(new Intent(getContext(), AdminActivity.class));
+                    }else if (isSeller){
+                        startActivity(new Intent(getContext(), SellerActivity.class));
+                    }else {
+                        startActivity(new Intent(getContext(), UserActivity.class));
                     }
                 }
             }

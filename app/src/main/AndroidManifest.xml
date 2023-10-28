@@ -13,16 +13,16 @@
         android:theme="@style/Theme.PurchaserReborn"
         tools:targetApi="31">
         <activity
+            android:name=".ui.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SellerActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.AddProductsActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.AddproductsActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.AddUsersActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.AddActivity"
             android:exported="false" />
         <activity
             android:name=".ui.AdminActivity"
