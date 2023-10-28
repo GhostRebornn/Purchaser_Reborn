@@ -2,6 +2,8 @@ package in.ghostreborn.purchaserreborn;
 
 import java.util.ArrayList;
 
+import in.ghostreborn.purchaserreborn.model.Products;
+
 public class Constants {
 
     public static final String PURCHASER_PREFERENCES = "PURCHASER_PREFERENCES";
@@ -20,6 +22,6 @@ public class Constants {
     public static final String TABLE_PRODUCT_PRICE = "PRODUCT_PRICE";
 
     public static ArrayList<String> users;
-    public static ArrayList<String> products;
+    public static ArrayList<Products> products;
 
 }

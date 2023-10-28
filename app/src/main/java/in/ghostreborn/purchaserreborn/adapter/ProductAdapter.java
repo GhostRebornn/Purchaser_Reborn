@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
+import in.ghostreborn.purchaserreborn.model.Products;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
@@ -23,8 +24,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
 
-        String product = Constants.products.get(position);
-        holder.productListNameText.setText(product);
+        Products product = Constants.products.get(position);
+        holder.productListNameText.setText(product.getName());
+        holder.productListPriceText.setText(product.getPrice());
     }
 
     @Override

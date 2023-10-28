@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.database.PurchaserDatabase;
+import in.ghostreborn.purchaserreborn.model.Products;
 
 public class PurchaserHelper {
 
@@ -19,7 +20,10 @@ public class PurchaserHelper {
             Cursor cursor = db.rawQuery(query, null);
             while (cursor.moveToNext()) {
                 Constants.products.add(
-                        cursor.getString(1)
+                        new Products(
+                                cursor.getString(1),
+                                cursor.getString(2)
+                        )
                 );
             }
             cursor.close();
