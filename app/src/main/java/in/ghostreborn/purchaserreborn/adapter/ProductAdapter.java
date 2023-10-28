@@ -32,14 +32,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
 
-        Products product = Constants.products.get(position);
+        Products product = Constants.products.get(holder.getAdapterPosition());
         holder.productListNameText.setText(product.getName());
         holder.productListPriceText.setText(product.getPrice());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent(context, BuyActivity.class));
-            }
+        holder.itemView.setOnClickListener(v -> {
+            Constants.productIndex = holder.getAdapterPosition();
+            context.startActivity(new Intent(context, BuyActivity.class));
         });
     }
 

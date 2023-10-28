@@ -6,8 +6,6 @@ import in.ghostreborn.purchaserreborn.model.Products;
 
 public class Constants {
 
-    public static final String PURCHASER_PREFERENCES = "PURCHASER_PREFERENCES";
-    public static final String PREFERENCES_LOGIN = "PREFERENCES_LOGIN";
     public static final String TABLE_NAME_USER = "USERS";
     public static final String TABLE_NAME_PRODUCT = "PRODUCT";
 
@@ -23,5 +21,6 @@ public class Constants {
 
     public static ArrayList<String> users;
     public static ArrayList<Products> products;
+    public static int productIndex = 0;
 
 }
