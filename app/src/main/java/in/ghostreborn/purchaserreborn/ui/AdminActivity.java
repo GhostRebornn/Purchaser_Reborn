@@ -29,7 +29,7 @@ public class AdminActivity extends AppCompatActivity {
         RecyclerView usersRecycler = findViewById(R.id.users_recycler);
         PurchaserHelper.setupProducts(this);
         PurchaserHelper.setupUsers(this);
-        ProductAdapter productAdapter = new ProductAdapter();
+        ProductAdapter productAdapter = new ProductAdapter(this);
         UsersAdapter usersAdapter = new UsersAdapter();
         LinearLayoutManager productsManager = new LinearLayoutManager(this);
         LinearLayoutManager usersManager = new LinearLayoutManager(this);
