@@ -1,5 +1,7 @@
 package in.ghostreborn.purchaserreborn.adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +13,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
 import in.ghostreborn.purchaserreborn.model.Products;
+import in.ghostreborn.purchaserreborn.ui.BuyActivity;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
+
+    Context context;
+    public ProductAdapter(Context context){
+        this.context = context;
+    }
 
     @NonNull
     @Override
@@ -27,6 +35,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         Products product = Constants.products.get(position);
         holder.productListNameText.setText(product.getName());
         holder.productListPriceText.setText(product.getPrice());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, BuyActivity.class));
+            }
+        });
     }
 
     @Override
