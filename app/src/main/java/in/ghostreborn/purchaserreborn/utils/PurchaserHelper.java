@@ -21,6 +21,7 @@ public class PurchaserHelper {
             while (cursor.moveToNext()) {
                 Constants.products.add(
                         new Products(
+                                cursor.getString(0),
                                 cursor.getString(1),
                                 cursor.getString(2)
                         )
