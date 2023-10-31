@@ -20,6 +20,7 @@
             android:id="@+id/products_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
             android:text="@string/products"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -27,22 +28,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_conversion_absoluteHeight="32dp"
-            tools:layout_conversion_absoluteWidth="411dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            tools:layout_conversion_absoluteWidth="411dp" />
 
         <Button
             android:id="@+id/add_products_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="@string/add_product"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/products_text"
             tools:layout_conversion_absoluteHeight="48dp"
-            tools:layout_conversion_absoluteWidth="411dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="32dp" />
+            tools:layout_conversion_absoluteWidth="411dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/products_recycler"
@@ -58,6 +56,7 @@
             android:id="@+id/users_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
             android:text="@string/users"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -65,22 +64,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/products_recycler"
             tools:layout_conversion_absoluteHeight="32dp"
-            tools:layout_conversion_absoluteWidth="411dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="80dp" />
+            tools:layout_conversion_absoluteWidth="411dp" />
 
         <Button
             android:id="@+id/add_users_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
             android:text="@string/add_user"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/users_text"
             tools:layout_conversion_absoluteHeight="48dp"
-            tools:layout_conversion_absoluteWidth="411dp"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="113dp" />
+            tools:layout_conversion_absoluteWidth="411dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/users_recycler"
