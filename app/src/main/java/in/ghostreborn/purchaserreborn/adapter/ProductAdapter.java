@@ -81,6 +81,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             }
         });
 
+        if (Constants.showAddToCart){
+            holder.productListCartAddImage.setVisibility(View.VISIBLE);
+        }else {
+            holder.productListCartAddImage.setVisibility(View.GONE);
+        }
+
         if (editable){
             holder.productListEditImage.setVisibility(View.VISIBLE);
             holder.productListEditImage.setOnClickListener(v -> {

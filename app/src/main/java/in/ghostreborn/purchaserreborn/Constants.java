@@ -27,6 +27,7 @@ public class Constants {
     public static boolean isAdmin = false;
     public static boolean isSeller = false;
     public static boolean isUser = false;
+    public static boolean showAddToCart = true;
 
     public static String user = "";
 

@@ -20,6 +20,13 @@ public class BuyActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Constants.showAddToCart = true;
 
         TextView productNameText = findViewById(R.id.buy_name_text);
         TextView productPriceText = findViewById(R.id.buy_price_text);
@@ -32,7 +39,7 @@ public class BuyActivity extends AppCompatActivity {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(
                     getContentResolver(),
                     product.getPic_id()
-                    );
+            );
             productImage.setImageBitmap(bitmap);
         } catch (IOException e) {
             e.printStackTrace();

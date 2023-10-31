@@ -21,6 +21,9 @@ public class CartActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        Constants.showAddToCart = false;
+
         RecyclerView cartRecycler = findViewById(R.id.cart_recycler);
         ProductAdapter adapter = new ProductAdapter(CartActivity.this, Constants.cart,false);
         LinearLayoutManager manager = new LinearLayoutManager(CartActivity.this);
