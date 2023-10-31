@@ -18,6 +18,7 @@ public class Constants {
     public static final String TABLE_PRODUCT_ID = "PRODUCT_ID";
     public static final String TABLE_PRODUCT_NAME = "PRODUCT_NAME";
     public static final String TABLE_PRODUCT_PRICE = "PRODUCT_PRICE";
+    public static final String TABLE_PRODUCT_PIC_ID = "PRODUCT_PIC_ID";
 
     public static ArrayList<String> users;
     public static ArrayList<Products> products;

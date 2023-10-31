@@ -55,7 +55,8 @@ public class PurchaserDatabase extends SQLiteOpenHelper {
                 "(" +
                 Constants.TABLE_PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 Constants.TABLE_PRODUCT_NAME + " TEXT UNIQUE," +
-                Constants.TABLE_PRODUCT_PRICE + " TEXT" +
+                Constants.TABLE_PRODUCT_PRICE + " TEXT," +
+                Constants.TABLE_PRODUCT_PIC_ID + " TEXT" +
                 ")";
         db.execSQL(query);
     }
