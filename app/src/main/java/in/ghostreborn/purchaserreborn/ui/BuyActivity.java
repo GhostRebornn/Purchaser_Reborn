@@ -32,7 +32,8 @@ public class BuyActivity extends AppCompatActivity {
 
         Products product = Constants.products.get(Constants.productIndex);
         productNameText.setText(product.getName());
-        productPriceText.setText(product.getPrice());
+        String price = "Price: " + product.getPrice();
+        productPriceText.setText(price);
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(
                     getContentResolver(),
