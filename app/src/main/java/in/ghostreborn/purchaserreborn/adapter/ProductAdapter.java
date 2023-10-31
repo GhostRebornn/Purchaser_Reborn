@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
@@ -20,6 +21,7 @@ import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
 import in.ghostreborn.purchaserreborn.model.Products;
 import in.ghostreborn.purchaserreborn.ui.BuyActivity;
+import in.ghostreborn.purchaserreborn.ui.ProductEditActivity;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
@@ -55,9 +57,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         if (editable){
             holder.productListEditImage.setVisibility(View.VISIBLE);
+            holder.productListEditImage.setOnClickListener(v -> {
+                Constants.productIndex = holder.getAdapterPosition();
+                context.startActivity(new Intent(context, ProductEditActivity.class));
+            });
         }
 
-        holder.itemView.setOnClickListener(v -> {
+        holder.productConstraint.setOnClickListener(v -> {
             Constants.productIndex = holder.getAdapterPosition();
             context.startActivity(new Intent(context, BuyActivity.class));
         });
@@ -74,6 +80,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         public TextView productListPriceText;
         public ImageView productListImageView;
         public ImageView productListEditImage;
+        public ConstraintLayout productConstraint;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -81,6 +88,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             productListPriceText = itemView.findViewById(R.id.product_list_price_text);
             productListImageView = itemView.findViewById(R.id.product_list_image);
             productListEditImage = itemView.findViewById(R.id.product_list_edit);
+            productConstraint = itemView.findViewById(R.id.product_constraint);
         }
     }
 
