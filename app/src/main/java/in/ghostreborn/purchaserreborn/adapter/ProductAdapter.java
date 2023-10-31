@@ -44,9 +44,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
         Products product = Constants.products.get(holder.getAdapterPosition());
         holder.productListNameText.setText(product.getName());
-        holder.productListPriceText.setText(product.getPrice());
+        String price = product.getPrice() + "₹";
+        holder.productListPriceText.setText(price);
 
-        Uri uri = Uri.parse(product.getPic_id());
+        Uri uri = product.getPic_id();
         Bitmap bitmap;
         try {
             bitmap = MediaStore.Images.Media.getBitmap(holder.itemView.getContext().getContentResolver(), uri);

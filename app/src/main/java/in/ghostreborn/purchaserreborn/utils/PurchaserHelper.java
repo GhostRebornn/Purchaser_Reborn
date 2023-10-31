@@ -3,6 +3,7 @@ package in.ghostreborn.purchaserreborn.utils;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 
 import java.util.ArrayList;
 
@@ -21,10 +22,10 @@ public class PurchaserHelper {
             while (cursor.moveToNext()) {
                 Constants.products.add(
                         new Products(
-                                cursor.getString(0),
+                                cursor.getInt(0),
                                 cursor.getString(1),
-                                cursor.getString(2),
-                                cursor.getString(3)
+                                cursor.getInt(2),
+                                Uri.parse(cursor.getString(3))
                         )
                 );
             }

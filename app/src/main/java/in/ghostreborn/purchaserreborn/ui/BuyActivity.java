@@ -1,13 +1,12 @@
 package in.ghostreborn.purchaserreborn.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.IOException;
 
@@ -32,7 +31,7 @@ public class BuyActivity extends AppCompatActivity {
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(
                     getContentResolver(),
-                    Uri.parse(product.getPic_id())
+                    product.getPic_id()
                     );
             productImage.setImageBitmap(bitmap);
         } catch (IOException e) {
