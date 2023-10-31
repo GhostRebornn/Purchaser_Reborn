@@ -52,11 +52,19 @@ public class LoginFragment extends Fragment {
                 boolean isAdmin = cursor.getInt(4) == 1;
 
                 if (userName.equals(user) && password.equals(pass)) {
+
+                    Constants.isAdmin = false;
+                    Constants.isSeller = false;
+                    Constants.isUser = false;
+
                     if (isAdmin) {
+                        Constants.isAdmin = true;
                         startActivity(new Intent(getContext(), AdminActivity.class));
                     }else if (isSeller){
+                        Constants.isSeller = true;
                         startActivity(new Intent(getContext(), SellerActivity.class));
                     }else {
+                        Constants.isUser = true;
                         startActivity(new Intent(getContext(), UserActivity.class));
                     }
                 }

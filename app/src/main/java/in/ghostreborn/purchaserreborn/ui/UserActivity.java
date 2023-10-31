@@ -20,7 +20,7 @@ public class UserActivity extends AppCompatActivity {
         PurchaserHelper.setupProducts(this);
         RecyclerView recyclerView = findViewById(R.id.products_recycler);
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        ProductAdapter adapter = new ProductAdapter(this);
+        ProductAdapter adapter = new ProductAdapter(this, PurchaserHelper.checkEditable());
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
 

@@ -24,8 +24,10 @@ import in.ghostreborn.purchaserreborn.ui.BuyActivity;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     Context context;
-    public ProductAdapter(Context context){
+    boolean editable;
+    public ProductAdapter(Context context, boolean editable){
         this.context = context;
+        this.editable = editable;
     }
 
     @NonNull
@@ -51,6 +53,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             e.printStackTrace();
         }
 
+        if (editable){
+            holder.productListEditImage.setVisibility(View.VISIBLE);
+        }
+
         holder.itemView.setOnClickListener(v -> {
             Constants.productIndex = holder.getAdapterPosition();
             context.startActivity(new Intent(context, BuyActivity.class));
@@ -67,12 +73,14 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         public TextView productListNameText;
         public TextView productListPriceText;
         public ImageView productListImageView;
+        public ImageView productListEditImage;
 
         public ViewHolder(View itemView) {
             super(itemView);
             productListNameText = itemView.findViewById(R.id.product_list_name_text);
             productListPriceText = itemView.findViewById(R.id.product_list_price_text);
             productListImageView = itemView.findViewById(R.id.product_list_image);
+            productListEditImage = itemView.findViewById(R.id.product_list_edit);
         }
     }
 

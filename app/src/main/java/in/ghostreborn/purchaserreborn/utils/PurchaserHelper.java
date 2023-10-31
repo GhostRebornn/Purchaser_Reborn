@@ -51,4 +51,10 @@ public class PurchaserHelper {
         }
     }
 
+    public static boolean checkEditable(){
+        if (Constants.isAdmin){
+            return true;
+        }else return Constants.isSeller;
+    }
+
 }
