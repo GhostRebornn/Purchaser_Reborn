@@ -26,7 +26,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/product_image"
+            android:id="@+id/product_update_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="8dp"
@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <EditText
-            android:id="@+id/product_name_edit"
+            android:id="@+id/product_update_name_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -47,10 +47,10 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_image" />
+            app:layout_constraintTop_toBottomOf="@+id/product_update_image" />
 
         <EditText
-            android:id="@+id/product_price_edit"
+            android:id="@+id/product_update_price_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autofillHints="name"
@@ -59,15 +59,15 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_name_edit" />
+            app:layout_constraintTop_toBottomOf="@+id/product_update_name_edit" />
 
         <Button
-            android:id="@+id/save_product_button"
+            android:id="@+id/update_product_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/product_price_edit" />
+            app:layout_constraintTop_toBottomOf="@+id/product_update_price_edit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

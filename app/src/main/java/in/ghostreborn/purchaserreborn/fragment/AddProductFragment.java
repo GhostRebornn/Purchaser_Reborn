@@ -45,10 +45,10 @@ public class AddProductFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_product, container, false);
-        productNameEdit = view.findViewById(R.id.product_name_edit);
-        productPriceEdit = view.findViewById(R.id.product_price_edit);
-        productSaveButton = view.findViewById(R.id.save_product_button);
-        productImageView = view.findViewById(R.id.product_image);
+        productNameEdit = view.findViewById(R.id.product_update_name_edit);
+        productPriceEdit = view.findViewById(R.id.product_update_price_edit);
+        productSaveButton = view.findViewById(R.id.update_product_button);
+        productImageView = view.findViewById(R.id.product_update_image);
 
         productImageView.setOnClickListener(v -> FishBun.with(AddProductFragment.this)
                 .setImageAdapter(new GlideAdapter())
