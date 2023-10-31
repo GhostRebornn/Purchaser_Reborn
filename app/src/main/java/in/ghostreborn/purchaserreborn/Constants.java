@@ -22,6 +22,7 @@ public class Constants {
 
     public static ArrayList<String> users;
     public static ArrayList<Products> products;
+    public static ArrayList<Products> cart;
     public static int productIndex = 0;
     public static boolean isAdmin = false;
     public static boolean isSeller = false;

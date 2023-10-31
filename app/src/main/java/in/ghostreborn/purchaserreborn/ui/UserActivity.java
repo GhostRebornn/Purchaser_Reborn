@@ -1,11 +1,15 @@
 package in.ghostreborn.purchaserreborn.ui;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.widget.TextView;
+import java.util.ArrayList;
 
 import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
@@ -19,16 +23,26 @@ public class UserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
+        setupProducts();
+
+        Constants.cart = new ArrayList<>();
+
+        TextView userNameText = findViewById(R.id.user_name_text);
+        String hiUser = "Hello " + Constants.user;
+        userNameText.setText(hiUser);
+
+        ImageView cartImageView = findViewById(R.id.cart_image_view);
+        cartImageView.setOnClickListener(v -> startActivity(new Intent(UserActivity.this, CartActivity.class)));
+
+    }
+
+    private void setupProducts(){
         PurchaserHelper.setupProducts(this);
         RecyclerView recyclerView = findViewById(R.id.products_recycler);
         LinearLayoutManager manager = new LinearLayoutManager(this);
         ProductAdapter adapter = new ProductAdapter(this, PurchaserHelper.checkEditable());
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
-
-        TextView userNameText = findViewById(R.id.user_name_text);
-        String hiUser = "Hello " + Constants.user;
-        userNameText.setText(hiUser);
-
     }
+
 }

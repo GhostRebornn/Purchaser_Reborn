@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".fragment.LoginFragment">
 
 
@@ -22,6 +23,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/app_name"
+            android:textColor="@color/white"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +41,7 @@
             android:hint="@string/username"
             android:inputType="text"
             android:text="user"
-            android:textColor="@color/text_color"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -55,7 +57,7 @@
             android:hint="@string/password"
             android:inputType="textPassword"
             android:text="user123"
-            android:textColor="@color/text_color"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_user_edit" />
@@ -67,6 +69,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins"
             android:text="@string/login"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_pass_edit" />
