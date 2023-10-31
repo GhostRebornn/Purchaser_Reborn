@@ -25,7 +25,8 @@ public class PurchaserHelper {
                                 cursor.getInt(0),
                                 cursor.getString(1),
                                 cursor.getInt(2),
-                                Uri.parse(cursor.getString(3))
+                                Uri.parse(cursor.getString(3)),
+                                false
                         )
                 );
             }

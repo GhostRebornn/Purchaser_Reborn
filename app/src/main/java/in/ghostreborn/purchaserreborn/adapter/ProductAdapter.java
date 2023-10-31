@@ -56,7 +56,17 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             e.printStackTrace();
         }
 
-        holder.productListCartAddImage.setOnClickListener(v -> holder.productListCartAddImage.setImageResource(R.drawable.cart_remove));
+        holder.productListCartAddImage.setOnClickListener(v -> {
+            if (!product.isCartAdded()){
+                holder.productListCartAddImage.setImageResource(R.drawable.cart_remove);
+                product.setCartAdded(true);
+                Constants.cart.add(product);
+            }else {
+                holder.productListCartAddImage.setImageResource(R.drawable.cart_add);
+                product.setCartAdded(false);
+                Constants.cart.remove(product);
+            }
+        });
 
         if (editable){
             holder.productListEditImage.setVisibility(View.VISIBLE);
