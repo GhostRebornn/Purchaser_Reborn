@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
 import in.ghostreborn.purchaserreborn.adapter.ProductAdapter;
 import in.ghostreborn.purchaserreborn.adapter.UsersAdapter;
@@ -29,7 +30,7 @@ public class AdminActivity extends AppCompatActivity {
         RecyclerView usersRecycler = findViewById(R.id.users_recycler);
         PurchaserHelper.setupProducts(this);
         PurchaserHelper.setupUsers(this);
-        ProductAdapter productAdapter = new ProductAdapter(this, PurchaserHelper.checkEditable());
+        ProductAdapter productAdapter = new ProductAdapter(this, Constants.products,PurchaserHelper.checkEditable());
         UsersAdapter usersAdapter = new UsersAdapter();
         LinearLayoutManager productsManager = new LinearLayoutManager(this);
         LinearLayoutManager usersManager = new LinearLayoutManager(this);

@@ -16,6 +16,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
@@ -27,8 +28,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     Context context;
     boolean editable;
-    public ProductAdapter(Context context, boolean editable){
+    ArrayList<Products> products;
+    public ProductAdapter(Context context, ArrayList<Products> products, boolean editable){
         this.context = context;
+        this.products = products;
         this.editable = editable;
     }
 
@@ -42,7 +45,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ProductAdapter.ViewHolder holder, int position) {
 
-        Products product = Constants.products.get(holder.getAdapterPosition());
+        Products product = products.get(holder.getAdapterPosition());
         holder.productListNameText.setText(product.getName());
         String price = product.getPrice() + "₹";
         holder.productListPriceText.setText(price);
@@ -56,15 +59,25 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             e.printStackTrace();
         }
 
+        if (!product.isCartAdded()){
+            holder.productListCartAddImage.setImageResource(R.drawable.cart_add);
+        }else {
+            holder.productListCartAddImage.setImageResource(R.drawable.cart_remove);
+        }
+
         holder.productListCartAddImage.setOnClickListener(v -> {
             if (!product.isCartAdded()){
-                holder.productListCartAddImage.setImageResource(R.drawable.cart_remove);
-                product.setCartAdded(true);
-                Constants.cart.add(product);
+                if (!Constants.cart.contains(product)){
+                    Constants.cart.add(product);
+                    holder.productListCartAddImage.setImageResource(R.drawable.cart_remove);
+                    product.setCartAdded(true);
+                }
             }else {
-                holder.productListCartAddImage.setImageResource(R.drawable.cart_add);
-                product.setCartAdded(false);
-                Constants.cart.remove(product);
+                if (Constants.cart.contains(product)){
+                    Constants.cart.remove(product);
+                    holder.productListCartAddImage.setImageResource(R.drawable.cart_add);
+                    product.setCartAdded(false);
+                }
             }
         });
 
@@ -84,7 +97,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return Constants.products.size();
+        return products.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
