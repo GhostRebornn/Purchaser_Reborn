@@ -25,26 +25,39 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/product_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/image_of_product"
+            android:src="@android:drawable/btn_dialog"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
         <EditText
             android:id="@+id/product_name_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
+            android:autofillHints="name"
             android:ems="10"
             android:hint="@string/product_name"
-            android:autofillHints="name"
             android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/product_image" />
 
         <EditText
             android:id="@+id/product_price_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:autofillHints="name"
             android:ems="10"
             android:hint="@string/price"
-            android:autofillHints="name"
             android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/product_name_edit" />
 
