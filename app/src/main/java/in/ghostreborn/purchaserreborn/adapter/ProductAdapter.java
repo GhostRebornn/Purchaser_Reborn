@@ -56,6 +56,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             e.printStackTrace();
         }
 
+        holder.productListCartAddImage.setOnClickListener(v -> holder.productListCartAddImage.setImageResource(R.drawable.cart_remove));
+
         if (editable){
             holder.productListEditImage.setVisibility(View.VISIBLE);
             holder.productListEditImage.setOnClickListener(v -> {
@@ -81,6 +83,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         public TextView productListPriceText;
         public ImageView productListImageView;
         public ImageView productListEditImage;
+        public ImageView productListCartAddImage;
         public ConstraintLayout productConstraint;
 
         public ViewHolder(View itemView) {
@@ -90,6 +93,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             productListImageView = itemView.findViewById(R.id.product_list_image);
             productListEditImage = itemView.findViewById(R.id.product_list_edit);
             productConstraint = itemView.findViewById(R.id.product_constraint);
+            productListCartAddImage = itemView.findViewById(R.id.cart_add_image_view);
         }
     }
 
