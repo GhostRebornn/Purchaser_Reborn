@@ -14,4 +14,7 @@
     <string name="price">Price</string>
     <string name="admin123">admin123</string>
     <string name="image_of_product">Image of Product</string>
+    <string name="products">Products</string>
+    <string name="users">Users</string>
+    <string name="edit_button">Edit Button</string>
 </resources>
