@@ -19,4 +19,5 @@
     <string name="edit_button">Edit Button</string>
     <string name="update">Update</string>
     <string name="buy">Buy</string>
+    <string name="cart">Cart</string>
 </resources>
