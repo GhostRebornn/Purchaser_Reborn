@@ -2,8 +2,14 @@ package in.ghostreborn.purchaserreborn.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
 
 import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
@@ -18,9 +24,20 @@ public class BuyActivity extends AppCompatActivity {
 
         TextView productNameText = findViewById(R.id.buy_name_text);
         TextView productPriceText = findViewById(R.id.buy_price_text);
+        ImageView productImage = findViewById(R.id.buy_product_image);
+
         Products product = Constants.products.get(Constants.productIndex);
         productNameText.setText(product.getName());
         productPriceText.setText(product.getPrice());
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                    getContentResolver(),
+                    Uri.parse(product.getPic_id())
+                    );
+            productImage.setImageBitmap(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
