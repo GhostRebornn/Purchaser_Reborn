@@ -1,6 +1,7 @@
 package in.ghostreborn.purchaserreborn.ui;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -29,5 +30,19 @@ public class CartActivity extends AppCompatActivity {
         LinearLayoutManager manager = new LinearLayoutManager(CartActivity.this);
         cartRecycler.setLayoutManager(manager);
         cartRecycler.setAdapter(adapter);
+
+        TextView totalText = findViewById(R.id.cart_total_text);
+        String total = "Total: " + getTotal();
+        totalText.setText(total);
+
     }
+
+    private int getTotal(){
+        int total = 0;
+        for (int i=0; i<Constants.cart.size(); i++){
+            total += Constants.cart.get(i).getPrice();
+        }
+        return total;
+    }
+
 }

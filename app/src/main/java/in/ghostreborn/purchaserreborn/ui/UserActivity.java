@@ -37,6 +37,7 @@ public class UserActivity extends AppCompatActivity {
         super.onResume();
 
         Constants.cart = new ArrayList<>();
+        Constants.showAddToCart = true;
         setupProducts();
 
     }

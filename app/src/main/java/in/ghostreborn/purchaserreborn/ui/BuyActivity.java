@@ -26,8 +26,6 @@ public class BuyActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        Constants.showAddToCart = true;
-
         TextView productNameText = findViewById(R.id.buy_name_text);
         TextView productPriceText = findViewById(R.id.buy_price_text);
         ImageView productImage = findViewById(R.id.buy_product_image);
