@@ -30,7 +30,7 @@ public class AddUserFragment extends Fragment {
         addUserEdit = view.findViewById(R.id.add_user_edit);
         addPassEdit = view.findViewById(R.id.add_pass_edit);
         radioGroup = view.findViewById(R.id.radioGroup);
-        saveButton = view.findViewById(R.id.save_button);
+        saveButton = view.findViewById(R.id.login_button);
 
         saveButton.setOnClickListener(v -> saveUser(addUserEdit.getText().toString(), addPassEdit.getText().toString()));
 
