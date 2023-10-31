@@ -57,6 +57,8 @@ public class LoginFragment extends Fragment {
                     Constants.isSeller = false;
                     Constants.isUser = false;
 
+                    Constants.user = user;
+
                     if (isAdmin) {
                         Constants.isAdmin = true;
                         startActivity(new Intent(getContext(), AdminActivity.class));

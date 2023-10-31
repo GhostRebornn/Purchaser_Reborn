@@ -27,4 +27,6 @@ public class Constants {
     public static boolean isSeller = false;
     public static boolean isUser = false;
 
+    public static String user = "";
+
 }
