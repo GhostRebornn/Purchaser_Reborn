@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -64,7 +65,12 @@ public class AddUserFragment extends Fragment {
             db.insert(Constants.TABLE_NAME_USER, null, values);
         }catch (Exception e){
             e.printStackTrace();
+            Toast.makeText(getContext(), "Failed to save", Toast.LENGTH_SHORT).show();
         }
+
+        Toast.makeText(getContext(), "Saved!", Toast.LENGTH_SHORT).show();
+        getActivity().finish();
+
     }
 
 }
