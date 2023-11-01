@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -108,6 +109,9 @@ public class UpdateProductFragment extends Fragment {
 
                 db.close();
 
+            }finally {
+                Toast.makeText(getContext(), "Saved!", Toast.LENGTH_SHORT).show();
+                getActivity().finish();
             }
         });
 

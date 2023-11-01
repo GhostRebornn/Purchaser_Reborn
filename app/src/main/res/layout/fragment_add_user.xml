@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AddUserFragment" >
+    android:background="@color/background"
+    tools:context=".fragment.AddUserFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -23,6 +24,7 @@
             android:fontFamily="@font/poppins"
             android:hint="@string/username"
             android:inputType="text"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +38,7 @@
             android:fontFamily="@font/poppins"
             android:hint="@string/password"
             android:inputType="text"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_user_edit" />
@@ -55,21 +58,24 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/poppins"
-                android:text="@string/user" />
+                android:text="@string/user"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/is_seller_radio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="@string/seller" />
+                android:text="@string/seller"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/is_admin_radio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="@string/admin" />
+                android:text="@string/admin"
+                android:textColor="@color/white" />
 
         </RadioGroup>
 
