@@ -32,7 +32,7 @@ public class CartActivity extends AppCompatActivity {
         cartRecycler.setAdapter(adapter);
 
         TextView totalText = findViewById(R.id.cart_total_text);
-        String total = "Total: " + getTotal();
+        String total = "Total: " + getTotal() + "₹";
         totalText.setText(total);
 
     }
