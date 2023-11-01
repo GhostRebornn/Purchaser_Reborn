@@ -44,7 +44,7 @@ public class AddUserFragment extends Fragment {
 
     private boolean checkSeller(){
         int checked = radioGroup.getCheckedRadioButtonId();
-        return checked == R.id.is_admin_radio;
+        return checked == R.id.is_seller_radio;
     }
 
     private void saveUser(
