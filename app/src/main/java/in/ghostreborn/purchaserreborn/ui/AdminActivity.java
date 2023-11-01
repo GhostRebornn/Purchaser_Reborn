@@ -20,6 +20,13 @@ public class AdminActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Constants.showAddToCart = false;
 
         Button addUserButton = findViewById(R.id.add_users_button);
         Button addProductButton = findViewById(R.id.add_products_button);
@@ -39,7 +46,5 @@ public class AdminActivity extends AppCompatActivity {
         usersRecycler.setLayoutManager(usersManager);
         productsRecycler.setAdapter(productAdapter);
         usersRecycler.setAdapter(usersAdapter);
-
     }
-
 }
