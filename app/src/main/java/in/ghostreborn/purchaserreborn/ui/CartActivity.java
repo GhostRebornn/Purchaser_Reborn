@@ -1,6 +1,8 @@
 package in.ghostreborn.purchaserreborn.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,8 +34,12 @@ public class CartActivity extends AppCompatActivity {
         cartRecycler.setAdapter(adapter);
 
         TextView totalText = findViewById(R.id.cart_total_text);
+        Constants.price = getTotal();
         String total = "Total: " + getTotal() + "₹";
         totalText.setText(total);
+
+        Button checkOutButton = findViewById(R.id.check_out_button);
+        checkOutButton.setOnClickListener(v -> startActivity(new Intent(CartActivity.this, PayActivity.class)));
 
     }
 
