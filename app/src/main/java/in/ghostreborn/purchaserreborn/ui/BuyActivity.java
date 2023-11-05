@@ -1,8 +1,10 @@
 package in.ghostreborn.purchaserreborn.ui;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -33,6 +35,7 @@ public class BuyActivity extends AppCompatActivity {
         Products product = Constants.products.get(Constants.productIndex);
         productNameText.setText(product.getName());
         String price = "Price: " + product.getPrice();
+        Constants.price = Integer.parseInt(price);
         productPriceText.setText(price);
         try {
             Bitmap bitmap = MediaStore.Images.Media.getBitmap(
@@ -43,6 +46,9 @@ public class BuyActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        Button buyButton = findViewById(R.id.buy_button);
+        buyButton.setOnClickListener(v -> startActivity(new Intent(BuyActivity.this, PayActivity.class)));
 
     }
 }

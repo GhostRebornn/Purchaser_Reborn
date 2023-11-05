@@ -9,18 +9,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
 import in.ghostreborn.purchaserreborn.Constants;
 import in.ghostreborn.purchaserreborn.R;
 import in.ghostreborn.purchaserreborn.database.PurchaserDatabase;
+import in.ghostreborn.purchaserreborn.ui.AddUsersActivity;
 import in.ghostreborn.purchaserreborn.ui.AdminActivity;
 import in.ghostreborn.purchaserreborn.ui.SellerActivity;
 import in.ghostreborn.purchaserreborn.ui.UserActivity;
 
 public class LoginFragment extends Fragment {
 
+    TextView registerTextView;
     EditText userNameTextView;
     EditText userPassTextView;
     Button loginButton;
@@ -32,6 +35,9 @@ public class LoginFragment extends Fragment {
         userNameTextView = view.findViewById(R.id.add_user_edit);
         userPassTextView = view.findViewById(R.id.add_pass_edit);
         loginButton = view.findViewById(R.id.login_button);
+        registerTextView = view.findViewById(R.id.register_text_view);
+
+        registerTextView.setOnClickListener(v -> startActivity(new Intent(getContext(), AddUsersActivity.class)));
         loginButton.setOnClickListener(v -> checkUser(
                 userNameTextView.getText().toString(),
                 userPassTextView.getText().toString()

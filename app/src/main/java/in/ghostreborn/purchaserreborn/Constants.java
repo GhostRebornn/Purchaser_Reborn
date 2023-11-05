@@ -30,5 +30,6 @@ public class Constants {
     public static boolean showAddToCart = true;
 
     public static String user = "";
+    public static int price = 0;
 
 }
