@@ -1,91 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_next"
     tools:context=".ui.PayActivity">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/cart_text2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        android:fontFamily="@font/poppins"
+        android:padding="8dp"
+        android:text="@string/pay"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:context=".ui.PayActivity">
 
-        <!--edit text for entering amount to be paid-->
         <EditText
-            android:id="@+id/idEdtAmount"
-            android:layout_width="match_parent"
+            android:id="@+id/pay_amount_edit"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
-            android:hint="Enter Amount to be paid"
-            android:inputType="numberDecimal" />
-
-        <!--edit text for entering the upi id
-            to which we have to make payment-->
-        <EditText
-            android:id="@+id/idEdtUpi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idEdtAmount"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
-            android:hint="Enter your UPI Id"
-            android:inputType="text" />
-
-        <!--edit text for adding the name of the
-            user whom we have to make payment-->
-        <EditText
-            android:id="@+id/idEdtName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idEdtUpi"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
-            android:hint="Enter your Name"
-            android:inputType="text" />
-
-        <!--edit text for adding the description for
-            the payment which we are making-->
-        <EditText
-            android:id="@+id/idEdtDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idEdtName"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="8dp"
-            android:hint="Enter Payment Description"
-            android:inputType="text" />
-
-        <!--button for making a payment-->
-        <Button
-            android:id="@+id/idBtnMakePayment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idEdtDescription"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
-            android:text="Make Payment"
-            android:textAllCaps="false" />
-
-        <!--text view for displaying transaction status-->
-        <TextView
-            android:id="@+id/idTVTransactionDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/idBtnMakePayment"
-            android:layout_marginTop="30dp"
-            android:text="Transaction Details"
-            android:textAlignment="center"
+            android:autofillHints="name"
+            android:hint="@string/enter_amount_to_be_paid"
+            android:inputType="numberDecimal"
             android:textColor="@color/white"
-            android:visibility="gone" />
+            android:textColorHint="@color/white_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+        <EditText
+            android:id="@+id/pay_upi_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_upi_id"
+            android:autofillHints="name"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/pay_amount_edit"
+            app:layout_constraintTop_toBottomOf="@id/pay_amount_edit" />
+
+        <EditText
+            android:id="@+id/pay_name_edit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_name"
+            android:inputType="text"
+            android:autofillHints="name"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_next"
+            app:layout_constraintEnd_toEndOf="@+id/pay_upi_edit"
+            app:layout_constraintStart_toStartOf="@+id/pay_upi_edit"
+            app:layout_constraintTop_toBottomOf="@id/pay_upi_edit" />
+
+        <EditText
+            android:id="@+id/pay_desc_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_payment_description"
+            android:inputType="text"
+            android:autofillHints="name"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white_next"
+            app:layout_constraintEnd_toEndOf="@+id/pay_name_edit"
+            app:layout_constraintStart_toStartOf="@+id/pay_name_edit"
+            app:layout_constraintTop_toBottomOf="@id/pay_name_edit" />
+
+        <Button
+            android:id="@+id/pay_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/make_payment"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/pay_desc_edit"
+            app:layout_constraintStart_toStartOf="@+id/pay_desc_edit"
+            app:layout_constraintTop_toBottomOf="@id/pay_desc_edit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

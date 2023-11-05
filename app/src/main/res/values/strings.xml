@@ -23,4 +23,10 @@
     <string name="check_out">Check Out</string>
     <string name="add">Add</string>
     <string name="register">Register</string>
+    <string name="pay">Pay</string>
+    <string name="enter_amount_to_be_paid">Enter Amount to be paid</string>
+    <string name="enter_your_upi_id">Enter your UPI Id</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="enter_payment_description">Enter Payment Description</string>
+    <string name="make_payment">Make Payment</string>
 </resources>

@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,10 +26,26 @@ public class PayActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pay);
 
+        EditText amountEdit = findViewById(R.id.pay_amount_edit);
+        EditText upiEdit = findViewById(R.id.pay_upi_edit);
+        EditText nameEdit = findViewById(R.id.pay_name_edit);
+        EditText descEdit = findViewById(R.id.pay_desc_edit);
 
-        Button makePayment = findViewById(R.id.idBtnMakePayment);
+
+        Button makePayment = findViewById(R.id.pay_button);
         makePayment.setOnClickListener(v -> {
-            payUsingUpi("20", "8921640287603@paytm", "GhostReborn", "Note");
+
+            String amount = amountEdit.getText().toString();
+            String upi = upiEdit.getText().toString();
+            String name = nameEdit.getText().toString();
+            String desc = descEdit.getText().toString();
+
+            payUsingUpi(
+                    amount,
+                    upi,
+                    name,
+                    desc
+            );
         });
 
     }
@@ -47,10 +64,8 @@ public class PayActivity extends AppCompatActivity {
         Intent upiPayIntent = new Intent(Intent.ACTION_VIEW);
         upiPayIntent.setData(uri);
 
-        // will always show a dialog to user to choose an app
         Intent chooser = Intent.createChooser(upiPayIntent, "Pay with");
 
-        // check if intent resolves
         if(null != chooser.resolveActivity(getPackageManager())) {
             startActivityForResult(chooser, UPI_PAYMENT);
         } else {
@@ -63,28 +78,26 @@ public class PayActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode) {
-            case UPI_PAYMENT:
-                if ((RESULT_OK == resultCode) || (resultCode == 11)) {
-                    if (data != null) {
-                        String trxt = data.getStringExtra("response");
-                        Log.d("UPI", "onActivityResult: " + trxt);
-                        ArrayList<String> dataList = new ArrayList<>();
-                        dataList.add(trxt);
-                        upiPaymentDataOperation(dataList);
-                    } else {
-                        Log.d("UPI", "onActivityResult: " + "Return data is null");
-                        ArrayList<String> dataList = new ArrayList<>();
-                        dataList.add("nothing");
-                        upiPaymentDataOperation(dataList);
-                    }
+        if (requestCode == UPI_PAYMENT) {
+            if ((RESULT_OK == resultCode) || (resultCode == 11)) {
+                if (data != null) {
+                    String text = data.getStringExtra("response");
+                    Log.d("UPI", "onActivityResult: " + text);
+                    ArrayList<String> dataList = new ArrayList<>();
+                    dataList.add(text);
+                    upiPaymentDataOperation(dataList);
                 } else {
-                    Log.d("UPI", "onActivityResult: " + "Return data is null"); //when user simply back without payment
+                    Log.d("UPI", "onActivityResult: " + "Return data is null");
                     ArrayList<String> dataList = new ArrayList<>();
                     dataList.add("nothing");
                     upiPaymentDataOperation(dataList);
                 }
-                break;
+            } else {
+                Log.d("UPI", "onActivityResult: " + "Return data is null"); //when user simply back without payment
+                ArrayList<String> dataList = new ArrayList<>();
+                dataList.add("nothing");
+                upiPaymentDataOperation(dataList);
+            }
         }
     }
 
@@ -96,18 +109,16 @@ public class PayActivity extends AppCompatActivity {
             if(str == null) str = "discard";
             String status = "";
             String approvalRefNo = "";
-            String response[] = str.split("&");
-            for (int i = 0; i < response.length; i++) {
-                String equalStr[] = response[i].split("=");
-                if(equalStr.length >= 2) {
-                    if (equalStr[0].toLowerCase().equals("Status".toLowerCase())) {
+            String[] response = str.split("&");
+            for (String s : response) {
+                String[] equalStr = s.split("=");
+                if (equalStr.length >= 2) {
+                    if (equalStr[0].equalsIgnoreCase("Status")) {
                         status = equalStr[1].toLowerCase();
-                    }
-                    else if (equalStr[0].toLowerCase().equals("ApprovalRefNo".toLowerCase()) || equalStr[0].toLowerCase().equals("txnRef".toLowerCase())) {
+                    } else if (equalStr[0].equalsIgnoreCase("ApprovalRefNo") || equalStr[0].equalsIgnoreCase("txnRef")) {
                         approvalRefNo = equalStr[1];
                     }
-                }
-                else {
+                } else {
                     paymentCancel = "Payment cancelled by user.";
                 }
             }
@@ -132,11 +143,9 @@ public class PayActivity extends AppCompatActivity {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null) {
             NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
-            if (netInfo != null && netInfo.isConnected()
+            return netInfo != null && netInfo.isConnected()
                     && netInfo.isConnectedOrConnecting()
-                    && netInfo.isAvailable()) {
-                return true;
-            }
+                    && netInfo.isAvailable();
         }
         return false;
     }
