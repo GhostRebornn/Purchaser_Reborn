@@ -67,7 +67,7 @@
             android:layout_marginTop="8dp"
             android:fontFamily="@font/poppins"
             android:text="@string/login"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/add_pass_edit" />
